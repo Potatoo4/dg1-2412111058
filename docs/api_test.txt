@@ -1,0 +1,121 @@
+
+
+C2.1 GET /api/health =====
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Thu, 08 Oct 2026 06:25:04 GMT
+Content-Type: application/json
+Content-Length: 39
+Connection: close
+
+{"status":"ok","student":"2412111058"}
+
+
+C2.2 GET /api/students =====
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Thu, 08 Oct 2026 06:25:04 GMT
+Content-Type: application/json
+Content-Length: 390
+Connection: close
+
+[{"diem":8.5,"ho_ten":"Nguyen Van An","id":1,"lop":"CNTT01","mssv":"20240001"},{"diem":9.0,"ho_ten":"Tran Thi Binh","id":2,"lop":"CNTT01","mssv":"20240002"},{"diem":7.5,"ho_ten":"Le Van Cuong","id":3,"lop":"CNTT02","mssv":"20240003"},{"diem":8.0,"ho_ten":"Pham Thi Dung","id":4,"lop":"CNTT02","mssv":"20240004"},{"diem":8.8,"ho_ten":"Hoang Van Em","id":5,"lop":"CNTT03","mssv":"20240005"}]
+
+
+ C2.3 GET /api/students?lop=CNTT01 =====
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Thu, 08 Oct 2026 06:25:04 GMT
+Content-Type: application/json
+Content-Length: 158
+Connection: close
+
+[{"diem":8.5,"ho_ten":"Nguyen Van An","id":1,"lop":"CNTT01","mssv":"20240001"},{"diem":9.0,"ho_ten":"Tran Thi Binh","id":2,"lop":"CNTT01","mssv":"20240002"}]
+
+
+C2.4 GET /api/students/1 =====
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Thu, 08 Oct 2026 06:25:04 GMT
+Content-Type: application/json
+Content-Length: 78
+Connection: close
+
+{"diem":8.5,"ho_ten":"Nguyen Van An","id":1,"lop":"CNTT01","mssv":"20240001"}
+
+
+C2.5 GET /api/students/999 =====
+HTTP/1.1 404 NOT FOUND
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Thu, 08 Oct 2026 06:25:04 GMT
+Content-Type: application/json
+Content-Length: 30
+Connection: close
+
+{"error":"Student not found"}
+
+
+C3.1 POST valid 
+HTTP/1.1 201 CREATED
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Thu, 08 Oct 2026 06:25:04 GMT
+Content-Type: application/json
+Content-Length: 78
+Connection: close
+
+{"diem":8.7,"ho_ten":"Do Van Hung","id":6,"lop":"CNTT03","mssv":"2412111063"}
+
+
+C3.2 POST missing field =====
+HTTP/1.1 400 BAD REQUEST
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Thu, 08 Oct 2026 06:25:05 GMT
+Content-Type: application/json
+Content-Length: 32
+Connection: close
+
+{"error":"Missing field: diem"}
+
+
+C3.3 POST diem < 0 =====
+HTTP/1.1 400 BAD REQUEST
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Thu, 08 Oct 2026 06:25:05 GMT
+Content-Type: application/json
+Content-Length: 42
+Connection: close
+
+{"error":"diem must be between 0 and 10"}
+
+
+C3.4 POST diem > 10 =====
+HTTP/1.1 400 BAD REQUEST
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Thu, 08 Oct 2026 06:25:05 GMT
+Content-Type: application/json
+Content-Length: 42
+Connection: close
+
+{"error":"diem must be between 0 and 10"}
+
+
+C3.5 POST diem khong phai so =====
+HTTP/1.1 400 BAD REQUEST
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Thu, 08 Oct 2026 06:25:05 GMT
+Content-Type: application/json
+Content-Length: 34
+Connection: close
+
+{"error":"diem must be a number"}
+
+
+C3.6 GET lai danh sach sau POST =====
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.14.4
+Date: Thu, 08 Oct 2026 06:25:05 GMT
+Content-Type: application/json
+Content-Length: 468
+Connection: close
+
+[{"diem":8.5,"ho_ten":"Nguyen Van An","id":1,"lop":"CNTT01","mssv":"20240001"},{"diem":9.0,"ho_ten":"Tran Thi Binh","id":2,"lop":"CNTT01","mssv":"20240002"},{"diem":7.5,"ho_ten":"Le Van Cuong","id":3,"lop":"CNTT02","mssv":"20240003"},{"diem":8.0,"ho_ten":"Pham Thi Dung","id":4,"lop":"CNTT02","mssv":"20240004"},{"diem":8.8,"ho_ten":"Hoang Van Em","id":5,"lop":"CNTT03","mssv":"20240005"},{"diem":8.7,"ho_ten":"Do Van Hung","id":6,"lop":"CNTT03","mssv":"2412111063"}]
