@@ -1,0 +1,7 @@
+*   6c82444 fix: resolve readme merge conflict
+|\  
+| * 8b36ed7 docs: update readme on develop
+* | d245c0c docs: update readme on main
+|/  
+* 42c4c5d chore: init project
+* b8e41e7 bruh
