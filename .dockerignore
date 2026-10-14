@@ -1,4 +1,5 @@
 .git
+.venv
 logs
 docs
 __pycache__

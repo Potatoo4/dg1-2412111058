@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - students-data:/srv/app/app/data
+    restart: unless-stopped
+
+volumes:
+  students-data:
