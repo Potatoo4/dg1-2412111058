@@ -40,5 +40,12 @@
     "ho_ten": "Do Van Hung",
     "lop": "CNTT03",
     "diem": 8.7
+  },
+  {
+    "id": 7,
+    "mssv": "2412111099",
+    "ho_ten": "Sinh Vien huh",
+    "lop": "CNTT03",
+    "diem": 9.0
   }
 ]
